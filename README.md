@@ -132,5 +132,5 @@ After training, the system generates:
 ## License
 MIT License
 
-## Author
-AI Engineering Team
+
+
