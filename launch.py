@@ -15,7 +15,7 @@ def main():
     
     # Get project root
     project_root = Path(__file__).parent
-    app_path = project_root / "app" / "main.py"
+    app_path = project_root / "main.py"
     
     print("📋 System Check:")
     print(f"  ✓ Project directory: {project_root}")

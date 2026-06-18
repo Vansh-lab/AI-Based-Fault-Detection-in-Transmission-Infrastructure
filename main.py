@@ -17,9 +17,9 @@ from streamlit_folium import st_folium
 
 warnings.filterwarnings('ignore')
 
-# Add src directory to path for imports
-src_path = Path(__file__).parent.parent / "src"
-sys.path.insert(0, str(src_path))
+# Add project root to path for imports
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
 
 try:
     from grad_cam import visualize_prediction_with_gradcam, overlay_heatmap_on_image
@@ -172,8 +172,7 @@ def main():
         st.header("⚙️ Configuration")
         
         # Model path configuration
-        model_dir = Path(__file__).parent.parent / "models"
-        model_path = model_dir / "fault_detector_best.h5"
+        model_path = Path(__file__).parent / "fault_detector_best.h5"
         
         st.info(f"Model Path: `{model_path}`")
         
@@ -185,8 +184,7 @@ def main():
     
     # Load model
     st.info("🔄 Loading model...")
-    model_dir = Path(__file__).parent.parent / "models"
-    model_path = model_dir / "fault_detector_best.h5"
+    model_path = Path(__file__).parent / "fault_detector_best.h5"
     
     model = load_model(str(model_path))
     
@@ -195,8 +193,8 @@ def main():
         ❌ **Model not found!**
         
         Please ensure:
-        1. The model has been trained and saved to `models/fault_detector_best.h5`
-        2. Run `python src/train.py` from the project root directory
+        1. The model has been trained and saved to `fault_detector_best.h5`
+        2. Run `python train.py` from the project root directory
         """)
         return
     
